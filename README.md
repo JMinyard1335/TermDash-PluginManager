@@ -37,15 +37,15 @@ Where <package source> may be:
 
 
 ## FAQ
-Q: Why does this exist?
+Q: Why does this exist? <br>
 A: I wanted to make a package based terminal dashboard that could download packages to extend the functionality of the dashboard. To do this I needed some way to discover and download packages.
 
 
-Q: What is a TermDash package?
+Q: What is a TermDash package? <br>
 A: A TermDash package is a pip-installable Python package that provides a Textual widget/page/service and registers itself using Python entrypoints so TermDash can discover and load it.
 
 
-Q: How are packages stored?
+Q: How are packages stored? <br>
 A: TermDash packages are installed into the same Python environment as TermDash (typically a virtual environment). TermDash also maintains a local package database which stores package metadata such as:
 - package id
 - version
@@ -56,34 +56,34 @@ A: TermDash packages are installed into the same Python environment as TermDash 
 This database does not store package code, it only tracks installed packages and their sources.
 
 
-Q: How are term packages downloaded?
+Q: How are term packages downloaded? <br>
 A: TermDash packages are downloaded and installed using pip. The package manager resolves the package source URL (usually from a repository index file) and then installs it using:
 ```bash
 python -m pip install git+<repo-url>
 ```
 
 
-Q: Where are packages downloaded?
+Q: Where are packages downloaded? <br>
 A:Packages are installed into the Python environment running TermDash. TermDash package manager metadata is stored in the user's data directory.
 
 
 
-Q: How can I add my own packages to the package repository?
+Q: How can I add my own packages to the package repository? <br>
 A:
 
 
-Q: How are dependency conflicts resolved?
-A: Dependency conflicts are resolved using pip’s dependency resolver. All TermDash packages share the same Python environment, so incompatible dependency requirements may prevent packages from installing together. TermDash does not currently sandbox packages or isolate dependencies.
+Q: How are dependency conflicts resolved? <br>
+A: Dependency conflicts are resolved using pip’s dependency resolver. All TermDash packages share the same Python environment, so incompatible dependency requirements may prevent packages from installing together. TermDash does not currently sandbox packages or isolate dependencies. <br>
 Future improvements may include:
 - per-package virtual environments
 - isolated plugin execution (not planned for Phase 1)
 
 
-Q: Are TermDash packages safe?
+Q: Are TermDash packages safe? <br>
 A: Inherently NO, I will do my best to make the default packages safe but downloading and using someone else TermDash packages is not safe. TermDash packages are just python code and this manager does nothing to make sure the code is not malicious. *IT IS UP TO THE USER TO VET ANY THIRD PARTY PACKAGES*
 
 
-Q: If a package is enabled in the config but does not exist in the repo what happens?
+Q: If a package is enabled in the config but does not exist in the repo what happens? <br>
 A: If a package is enabled in the config but is not installed or discoverable, TermDash will skip loading it and output an error message. The package will not be automatically removed or modified unless the user runs a package manager command.
 
 
